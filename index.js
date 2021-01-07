@@ -27,7 +27,7 @@ app.get('/cliente', async (req, res) => {
 })
 
 // Criar clientes
-app.post('/new', async (req, res) => {
+app.post('/cliente', async (req, res) => {
   await sequelize.sync()
   const body = req.body
   
@@ -94,5 +94,5 @@ app.delete('/cliente/:id', async (req, res) => {
 
 // Acesso ao servidor, ligar servidor
 app.listen(8000, () => {
-  console.log('ExpressJS iniciado em http://localhost:8000')
+  console.log('ExpressJS iniciado em http://localhost:8000/cliente')
 })
