@@ -16,6 +16,7 @@ Dependencias a utilizar:
 - `npm install sqlite3`
 - `npm i nodemon`
 - `npm i morgan`
+- `cors - npm install cors`
 
 ## Rode as migrações
 

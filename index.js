@@ -2,6 +2,8 @@
 
 const express = require('express')
 /* const { Sequelize, DataTypes } = require('sequelize') */
+const cors = require('cors')
+
 const {Cliente,sequelize,Sequelize} = require('./models/index')
 const morgan = require('morgan')
 const app = express()
@@ -9,6 +11,7 @@ const app = express()
 const cliente = Cliente
 /* const routes = require('./config/routes') */
 
+app.use(cors())
 
 // Morgan, log de requisições!
 app.use(morgan('dev'))
@@ -23,7 +26,7 @@ app.use(express.json())
 app.get('/cliente', async (req, res) => {
   const clienteList = await cliente.findAll()
 
-  res.json({ clientesAll: clienteList })
+  res.json(clienteList)
 })
 
 // Criar clientes
@@ -42,7 +45,7 @@ app.post('/cliente', async (req, res) => {
 
   const pessoas = await cliente.create(pessoa)
 
-  res.json({ cliente })
+  res.json(cliente)
 })
 
 // Ver cliente por id
